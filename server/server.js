@@ -1,0 +1,17 @@
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+
+const app = express();
+const PORT = 5000;
+
+const routes = require('./index');
+
+app.use(cors());
+app.use(bodyParser.json());
+
+app.use('/', routes);
+
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
